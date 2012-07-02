@@ -1,0 +1,21 @@
+%h1 Listing pairs
+
+%table
+  %tr
+    %th Key
+    %th Value
+    %th
+    %th
+    %th
+
+  - @pairs.each do |pair|
+    %tr
+      %td= pair.key
+      %td= pair.value
+      %td= link_to 'Show', organization_store_pair_path(@store.organization, @store, pair)
+      %td= link_to 'Edit', edit_organization_store_pair_path(@store.organization, @store, pair)
+      %td= link_to 'Destroy', organization_store_pair_path(@store.organization, @store, pair), :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Pair', new_organization_store_pair_path(@store.organization, @store)

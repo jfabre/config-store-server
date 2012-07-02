@@ -1,0 +1,16 @@
+= form_for [@store.organization, @store, @pair] do |f|
+  -if @pair.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@pair.errors.count, "error")} prohibited this pair from being saved:"
+      %ul
+        - @pair.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :key
+    = f.text_field :key
+  .field
+    = f.label :value
+    = f.text_field :value
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,11 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @store.name
+
+= link_to 'Pairs', organization_store_pairs_path(@organization, @store) 
+\|
+= link_to 'Edit', edit_organization_store_path(@organization, @store)
+\|
+= link_to 'Back', organization_stores_path(@organization)

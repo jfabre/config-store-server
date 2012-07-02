@@ -1,0 +1,7 @@
+%h1 Editing pair
+
+= render 'form'
+
+= link_to 'Show', organization_store_pair_path(@store.organization, @store, @pair)
+\|
+= link_to 'Back', organization_store_pairs_path(@store.organization, @store)
