@@ -1,7 +1,8 @@
-#source 'https://rubygems.org'
+source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
-gem 'haml'
+gem 'rails', '>= 3.2'
+gem 'haml-rails'
+gem 'thin'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
