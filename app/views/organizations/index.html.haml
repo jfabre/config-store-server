@@ -1,19 +1,16 @@
 %h1 Listing organizations
 
-%table
-  %tr
+%table.table.table-striped
+  %thead
     %th Name
     %th
-    %th
-    %th
+  %tbody
+    - @organizations.each do |organization|
+      %tr
+        %td= organization.name
+        %td
+          = link_to 'Show stores', organization_stores_path(organization), class: 'btn'
+          = link_to 'Edit', edit_organization_path(organization), class: 'btn'
+          = link_to 'Destroy', organization, :confirm => 'Are you sure?', :method => :delete, class: 'btn'
 
-  - @organizations.each do |organization|
-    %tr
-      %td= organization.name
-      %td= link_to 'Show', organization
-      %td= link_to 'Edit', edit_organization_path(organization)
-      %td= link_to 'Destroy', organization, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Organization', new_organization_path
+= link_to 'New Organization', new_organization_path, class: 'btn'

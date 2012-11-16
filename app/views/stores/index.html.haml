@@ -1,21 +1,19 @@
-%h1 Listing stores
+%h1 #{@organization.name.capitalize}'s stores
 
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
-
-  - @stores.each do |store|
+%table.table.table-striped
+  %thead
     %tr
-      %td= store.name
-      %td= link_to 'Show', organization_store_path(@organization, store)
-      %td= link_to 'Edit', edit_organization_store_path(@organization, store)
-      %td= link_to 'Destroy', organization_store_path(@organization, store), :confirm => 'Are you sure?', :method => :delete
+      %th Name
+      %th
+  %tbody   
+    - @stores.each do |store|
+      %tr
+        %td= store.name
+        %td
+          = link_to 'Show configs', organization_store_pairs_path(@organization, store), class: 'btn'
+          = link_to 'Edit', edit_organization_store_path(@organization, store), class: 'btn'
+          = link_to 'Destroy', organization_store_path(@organization, store), :confirm => 'Are you sure?', :method => :delete, class: 'btn'
 
-%br
 
-= link_to 'New Store', new_organization_store_path(@organization)
-\|
-= link_to 'Back', organization_path(@organization)
+= link_to 'New Store', new_organization_store_path(@organization), class: 'btn'
+= link_to 'Back', organizations_path, class: 'btn'

@@ -8,9 +8,10 @@
 
   .field
     = f.label :key
-    = f.text_field :key
+    = f.text_field :key, class: 'input'
   .field
     = f.label :value
-    = f.text_field :value
+    = f.text_field :value, class: 'input'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-success'
+    = link_to 'Back', organization_store_pairs_path(@store.organization, @store), class: 'btn'

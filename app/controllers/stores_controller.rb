@@ -53,8 +53,7 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       if @organization.save
-        url = organization_store_url(@organization, @store)
-        format.html { redirect_to url, notice: 'Store was successfully created.' }
+        format.html { redirect_to organization_stores_path(@organization), notice: 'Store was successfully created.' }
         format.json { render json: @store, status: :created, location: url }
         format.xml { render xml: @store, status: :created, location: url }
       else
@@ -73,7 +72,7 @@ class StoresController < ApplicationController
     respond_to do |format|
       attrs = params[:store]
       if @store.update_attributes(:name => attrs[:name])
-        format.html { redirect_to organization_store_url(@organization, @store), notice: 'Store was successfully updated.' }
+        format.html { redirect_to organization_stores_path(@organization), notice: 'Store was successfully updated.' }
         format.json { head :no_content }
         format.xml { head :no_content }
       else

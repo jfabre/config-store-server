@@ -1,21 +1,20 @@
-%h1 Listing pairs
+%h1 #{@store.name.capitalize}'s configs
 
-%table
-  %tr
-    %th Key
-    %th Value
-    %th
-    %th
-    %th
-
-  - @pairs.each do |pair|
+%table.table.table-striped
+  %thead
     %tr
-      %td= pair.key
-      %td= pair.value
-      %td= link_to 'Show', organization_store_pair_path(@store.organization, @store, pair)
-      %td= link_to 'Edit', edit_organization_store_pair_path(@store.organization, @store, pair)
-      %td= link_to 'Destroy', organization_store_pair_path(@store.organization, @store, pair), :confirm => 'Are you sure?', :method => :delete
+      %th Key
+      %th Value
+      %th
+  %tbody
+    - @pairs.each do |pair|
+      %tr
+        %td= pair.key
+        %td= pair.value
+        %td 
+          = link_to 'Show', organization_store_pair_path(@store.organization, @store, pair), class: 'btn'
+          = link_to 'Edit', edit_organization_store_pair_path(@store.organization, @store, pair), class: 'btn'
+          = link_to 'Destroy', organization_store_pair_path(@store.organization, @store, pair), :confirm => 'Are you sure?', :method => :delete, class: 'btn'
 
-%br
-
-= link_to 'New Pair', new_organization_store_pair_path(@store.organization, @store)
+= link_to 'New Pair', new_organization_store_pair_path(@store.organization, @store), class: 'btn'
+= link_to 'Back', organization_stores_path(@store.organization), class: 'btn'
