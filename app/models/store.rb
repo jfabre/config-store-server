@@ -3,4 +3,6 @@ class Store < ActiveRecord::Base
 
   belongs_to :organization
   has_many :pairs, :dependent => :destroy
+
+  validates_uniqueness_of :name, :scope => :organization_id
 end
