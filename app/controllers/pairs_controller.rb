@@ -54,8 +54,7 @@ class PairsController < ApplicationController
 
     respond_to do |format|
       if @store.save
-        url = organization_store_pair_url(@store.organization, @store, @pair)
-        format.html { redirect_to url, notice: 'Pair was successfully created.' }
+        format.html { redirect_to organization_store_pairs_url(@store.organization, @store), notice: 'Pair was successfully created.' }
         format.json { render json: @pair, status: :created, location: url }
         format.xml { render xml: @pair, status: :created, location: url }
       else
@@ -74,7 +73,7 @@ class PairsController < ApplicationController
     respond_to do |format|
       attrs = params[:pair]
       if @pair.update_attributes({:key => attrs[:key], :value => attrs[:value]})
-        format.html { redirect_to organization_store_pair_url(@store.organization, @store, @pair), notice: 'Pair was successfully updated.' }
+        format.html { redirect_to organization_store_pairs_url(@store.organization, @store), notice: 'Pair was successfully updated.' }
         format.json { head :no_content }
         format.xml { head :no_content }
       else
