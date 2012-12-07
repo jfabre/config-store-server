@@ -54,8 +54,8 @@ class StoresController < ApplicationController
     respond_to do |format|
       if @organization.save
         format.html { redirect_to organization_stores_path(@organization), notice: 'Store was successfully created.' }
-        format.json { render json: @store, status: :created, location: url }
-        format.xml { render xml: @store, status: :created, location: url }
+        format.json { render json: @store, status: :created, location: organization_store_url(@organization, @store)}
+        format.xml { render xml: @store, status: :created, location: organization_store_url(@organization, @store)}
       else
         format.html { render action: "new" }
         format.json { render json: @store.errors, status: :unprocessable_entity }

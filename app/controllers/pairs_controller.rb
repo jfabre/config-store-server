@@ -55,8 +55,8 @@ class PairsController < ApplicationController
     respond_to do |format|
       if @store.save
         format.html { redirect_to organization_store_pairs_url(@store.organization, @store), notice: 'Pair was successfully created.' }
-        format.json { render json: @pair, status: :created, location: url }
-        format.xml { render xml: @pair, status: :created, location: url }
+        format.json { render json: @pair, status: :created, location: organization_store_pairs_url(@store.organization, @store, @pair) }
+        format.xml { render xml: @pair, status: :created, location: organization_store_pairs_url(@store.organization, @store, @pair) }
       else
         format.html { render action: "new" }
         format.json { render json: @pair.errors, status: :unprocessable_entity }
