@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '>= 3.2'
 gem 'haml-rails'
@@ -32,6 +33,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'newrelic_rpm'
 
 group :production do
   gem 'pg'  
